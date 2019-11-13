@@ -9,15 +9,25 @@ import CTRNN_Lauren
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Global Parameters
-size = 10
+# =============================================================================
+# 
+# Things I did since 11/12:
+#     Correctly ordered connections (0-size^2)
+#     Error bars on figure
+#     
+# =============================================================================
+
+#Global parameters
+size = 50
 duration = 50
-stepsize = 0.01
+stepsize = 0.1
 repetitions = 100
 
+NewTotalAvgListStd = []
 NewTotalAvgList = []
 possible_connections = np.arange(0,size**2,1)
-for c in possible_connections:
+possible_connections_ordered = np.flip(possible_connections)
+for c in possible_connections_ordered:
     TotalAvg = 0
     for r in range(repetitions):
         time = np.arange(0.0,duration,stepsize)
@@ -29,8 +39,6 @@ for c in possible_connections:
         outputs1[0] = nn.Output
         TimeSum = 0
         step = 1
-      #  print(c, "connection")
-       # print(r, "repetitions")
         for t in time:
             nn.step(stepsize)
             outputs1[step] = nn.Output
@@ -40,46 +48,17 @@ for c in possible_connections:
             step = step+1
         NewTimeSum = (TimeSum) / (duration * size)
         TotalAvg = NewTimeSum + TotalAvg
-      #  print(TotalAvg, "Total sum")
-    NewTotalAvg = TotalAvg / repetitions
-    NewTotalAvgList.append(NewTotalAvg)
- #   print(c, "connections ", NewTotalAvg, "Total average")
+    NewTotalAvg = TotalAvg / repetitions #this is the average neural output over all reps (one value)
+    NewTotalAvgList.append(NewTotalAvg) #This is an array of each average neural output for each number of connections
+    NewTotalAvgListStd.append(np.std(NewTotalAvgList))
+    Errors = NewTotalAvgListStd/(np.sqrt(len(NewTotalAvgList)))
     
-        
+
+
 plt.plot(possible_connections, NewTotalAvgList)
+plt.errorbar(possible_connections,NewTotalAvgList,yerr=Errors,fmt='o')
 plt.xlabel("Number of connections")
 plt.ylabel("Output")
 plt.title("Neural activity")
 plt.show()        
         
-
-#outputs_columns = np.column_stack((outputs_array))
-# =============================================================================
-# header = "outputs"
-# np.savetxt('OutputVsConnections.csv', outputs_array, delimiter=',', header=header)
-# 
-# =============================================================================
-# =============================================================================
-# outputs_array = np.array(outputs1)
-# sorted_outputs = np.sort(outputs_array)
-# print(sorted_outputs)
-# =============================================================================
-
-# =============================================================================
-# plt.plot(time,outputs1)
-# plt.xlabel("time")
-# plt.ylabel("Output")
-# plt.title("Neural activity")
-# plt.show()
-# =============================================================================
-
-
-# Run simulation
-
-# =============================================================================
-# for n in size:
-#     step = 0
-#     for t in time:
-#         nn.step(stepsize)
-#         outputs1[step] = nn.Output
-#         step += 1
