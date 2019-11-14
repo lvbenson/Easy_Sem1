@@ -33,10 +33,8 @@ class CTRNN():
        # self.TimeConstant = np.random.uniform(0.1,5.0,size=(self.Size))
        # self.invTimeConstant = 1.0/self.TimeConstant
 
-
     def setTimeConstantVector(self,NewTimeConstant):
-        NewTimeVector = np.full(self.Size,NewTimeConstant)
-        self.TimeConstant = NewTimeVector
+        self.TimeConstant = np.random.uniform(0.1,NewTimeConstant,size=(self.Size))
         self.invTimeConstant = 1.0/self.TimeConstant
          
         
