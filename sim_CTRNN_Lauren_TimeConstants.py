@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #Global parameters
-size = 3
+size = 10
 duration = 30
 stepsize = 0.1
 repetitions = 100
@@ -50,7 +50,7 @@ for t in Possible_Time_Constants:
 
 plt.plot(Possible_Time_Constants, NewTotalAvgList)
 #plt.errorbar(possible_connections,NewTotalAvgList,yerr=Errors, label = 'average over each possible connection', fmt='o')
-plt.xlabel("Possible Time Constants (for all neurons)")
+plt.xlabel("Variation in time constant")
 plt.ylabel("Output")
 plt.title("Neural activity")
 #plt.legend(loc='lower right')
