@@ -18,8 +18,8 @@ import numpy as np
 # =============================================================================
 
 #Global parameters
-size = 50
-duration = 50
+size = 3
+duration = 30
 stepsize = 0.1
 repetitions = 100
 
@@ -56,9 +56,10 @@ for c in possible_connections_ordered:
 
 
 plt.plot(possible_connections, NewTotalAvgList)
-plt.errorbar(possible_connections,NewTotalAvgList,yerr=Errors,fmt='o')
+plt.errorbar(possible_connections,NewTotalAvgList,yerr=Errors, label = 'average over each possible connection', fmt='o')
 plt.xlabel("Number of connections")
 plt.ylabel("Output")
 plt.title("Neural activity")
+plt.legend(loc='lower right')
 plt.show()        
         
