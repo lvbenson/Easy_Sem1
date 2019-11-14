@@ -15,6 +15,10 @@ duration = 30
 stepsize = 0.1
 repetitions = 100
 
+#What this does: Changes entire time constant vector to one specified value.
+#Need to do: Have different values for time constants? Each neuron needs different t.c.?
+
+
 NewTotalAvgList = []
 Possible_Time_Constants = np.arange(0.1,5,0.1)
 for t in Possible_Time_Constants:
