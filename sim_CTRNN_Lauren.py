@@ -51,8 +51,10 @@ for c in possible_connections_ordered:
     NewTotalAvg = TotalAvg / repetitions #this is the average neural output over all reps (one value)
     NewTotalAvgList.append(NewTotalAvg) #This is an array of each average neural output for each number of connections
     NewTotalAvgListStd.append(np.std(NewTotalAvgList))
+    np.save('avg_N.O_Per_Connection', NewTotalAvgList)
+    np.save('Std_per_connection', NewTotalAvgListStd)
     Errors = NewTotalAvgListStd/(np.sqrt(len(NewTotalAvgList)))
-    
+    np.save('ErrorBars_Per_Connection',Errors)
 
 
 plt.plot(possible_connections, NewTotalAvgList)
