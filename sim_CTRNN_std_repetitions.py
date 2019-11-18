@@ -14,16 +14,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #Global parameters
-size = 3
+size = 10
 duration = 50
 stepsize = 0.1
 
 
 #First, show std for 0 connection.
-possible_connections = np.arange(0,size**2,2)
+possible_connections = np.arange(0,size**2,1)
 possible_connections_ordered = np.flip(possible_connections)
+NewRepOutputList = []
 for c in possible_connections_ordered:
-    repetitions = np.arange(0,100,1)
+    repetitions = np.arange(0,50,1)
     TotalAvg = 0
     EachRepOutputList = []
     Std_Each_Rep = []
@@ -45,11 +46,30 @@ for c in possible_connections_ordered:
             TimeSum = TimeSum + SumNewOutput #sum of change in outputs
             step = step+1
             NewTimeSum = (TimeSum) / (duration * size) 
-            EachRepOutputList.append(NewTimeSum)
-            Std_Each_Rep.append(np.std(EachRepOutputList))
-            Errors = Std_Each_Rep/(np.sqrt(len(EachRepOutputList)))
+        EachRepOutputList.append(NewTimeSum) #This is calculating the change in neural output for every repetition
+        Std_Each_Rep.append(np.std(EachRepOutputList))
+        Errors = Std_Each_Rep/(np.sqrt(len(EachRepOutputList)))
+    NewRepOutputList.append(EachRepOutputList) #this is creating a list of neural outputs for every repetition, for each possible connection.
 
-print(len(EachRepOutputList))
+for l in NewRepOutputList:
+    plt.plot(repetitions, l)
+    plt.xlabel("Repetitions")
+    plt.ylabel("Output")
+    plt.title("Neural activity")
+    plt.show()    
+
+
+    
+# =============================================================================
+#     
+#     
+#     
+#     fig, axes = plt.subplots(nrows=3, ncols=3, sharex=True, sharey=True)
+#     titles = ['1 Connection', '2 connections', '3 connections' '4 connections' '5 connections' '6 connections' '7 connections' '8 connections' '9 connections']
+# 
+# =============================================================================
+        
+
 
 
 
