@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #Global parameters
-size = 10
+size = 3
 duration = 50
 stepsize = 0.1
 
@@ -51,12 +51,13 @@ for c in possible_connections_ordered:
         Errors = Std_Each_Rep/(np.sqrt(len(EachRepOutputList)))
     NewRepOutputList.append(EachRepOutputList) #this is creating a list of neural outputs for every repetition, for each possible connection.
 
-for l in NewRepOutputList:
-    plt.plot(repetitions, l)
-    plt.xlabel("Repetitions")
-    plt.ylabel("Output")
-    plt.title("Neural activity")
-    plt.show()    
+
+ip = np.arange(1,10,1)
+for i in ip :
+    for l in NewRepOutputList:
+        plt.subplot(3, 3, i)
+        plt.plot(repetitions,l)
+        plt.show
 
 
     
