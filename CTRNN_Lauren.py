@@ -30,14 +30,16 @@ class CTRNN():
     def randomizeParameters(self):
         self.Weight = np.random.uniform(-15,15,size=(self.Size,self.Size))
         self.Bias = np.random.uniform(-10,10,size=(self.Size))
-       # self.TimeConstant = np.random.uniform(0.1,5.0,size=(self.Size))
-       # self.invTimeConstant = 1.0/self.TimeConstant
-
-    def setTimeConstantVector(self,NewTimeConstant):
-        self.TimeConstant = np.random.uniform(0.1,NewTimeConstant,size=(self.Size))
+        self.TimeConstant = np.random.uniform(0.1,5.0,size=(self.Size))
         self.invTimeConstant = 1.0/self.TimeConstant
-         
-        
+
+# =============================================================================
+#     def setTimeConstantVector(self,NewTimeConstant):
+#         self.TimeConstant = np.random.uniform(0.1,NewTimeConstant,size=(self.Size))
+#         self.invTimeConstant = 1.0/self.TimeConstant
+#           
+#         
+# =============================================================================
     def setweightmatrix3(self,numconnections):
         self.Weight = np.random.uniform(-15,15,size=(self.Size,self.Size))
         k = 0
