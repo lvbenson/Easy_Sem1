@@ -23,10 +23,15 @@ class CTRNN():
         self.Weight = np.zeros((size,size))     # weight matrix
         self.Output = np.zeros(size)            # neuron output vector
         self.Input = np.zeros(size)             # neuron output vector
+<<<<<<< HEAD
+        
+        
+=======
 
 # vector of time constants represents variations in the evolution timescales of the neurons 
 #Having a smaller time constant for Neuron1 will mean that Neuron1 is "faster" in comparison
 
+>>>>>>> 7c886510521e8649cab0c87948222c33601d4cce
     def randomizeParameters(self):
         self.Weight = np.random.uniform(-15,15,size=(self.Size,self.Size))
         self.Bias = np.random.uniform(-10,10,size=(self.Size))
@@ -49,6 +54,11 @@ class CTRNN():
             if self.Weight[i][j] != 0:
                 self.Weight[i][j] = 0
                 k = k+1
+<<<<<<< HEAD
+       # NumConnections = np.count_nonzero(self.Weight)
+        
+=======
+>>>>>>> 7c886510521e8649cab0c87948222c33601d4cce
             
 # =============================================================================
 #     def setParameters(self,genotype,WeightRange,BiasRange,TimeConstMin,TimeConstMax):
