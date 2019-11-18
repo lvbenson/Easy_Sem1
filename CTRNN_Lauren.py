@@ -23,40 +23,25 @@ class CTRNN():
         self.Weight = np.zeros((size,size))     # weight matrix
         self.Output = np.zeros(size)            # neuron output vector
         self.Input = np.zeros(size)             # neuron output vector
+<<<<<<< HEAD
         
         
-    def randomizeParameters(self):
-        #self.Weight = np.random.uniform(-10,10,size=(self.Size,self.Size))
-        self.Bias = np.random.uniform(-10,10,size=(self.Size))
-        self.TimeConstant = np.random.uniform(0.1,5.0,size=(self.Size))
-        self.invTimeConstant = 1.0/self.TimeConstant
+=======
 
-# =============================================================================
-#     def setweightmatrix(self):
-#         k = 0.5
-#         for i in range(self.Size):
-#             for j in range(self.Size):
-#                 if random.uniform(0,1) < k:
-#                     self.Weight[i][j] = 0.0
-#                 else:
-#                     self.Weight[i][j] = np.random.uniform(-10,10)
-#         NumConnections = np.count_nonzero(self.Weight)
-#         print(NumConnections) 
-# =============================================================================
-        
-        
-# =============================================================================
-#     def setweightmatrix2(self, numconnections):
-#         #self.Weight = np.random.uniform(-10,10,size=(self.Size,self.Size))
-#         size_matrix = (self.Size,self.Size)
-#         self.Weight = np.zeros(size_matrix)
-#         for n in range(numconnections):
-#             i = random.randint(0,self.Size-1)
-#             j = random.randint(0,self.Size-1)
-#             self.Weight[i][j] = random.randint(1,100)
-#         NumConnections = np.count_nonzero(self.Weight)
-#         print(NumConnections)
-# =============================================================================
+# vector of time constants represents variations in the evolution timescales of the neurons 
+#Having a smaller time constant for Neuron1 will mean that Neuron1 is "faster" in comparison
+
+>>>>>>> 7c886510521e8649cab0c87948222c33601d4cce
+    def randomizeParameters(self):
+        self.Weight = np.random.uniform(-15,15,size=(self.Size,self.Size))
+        self.Bias = np.random.uniform(-10,10,size=(self.Size))
+       # self.TimeConstant = np.random.uniform(0.1,5.0,size=(self.Size))
+       # self.invTimeConstant = 1.0/self.TimeConstant
+
+    def setTimeConstantVector(self,NewTimeConstant):
+        self.TimeConstant = np.random.uniform(0.1,NewTimeConstant,size=(self.Size))
+        self.invTimeConstant = 1.0/self.TimeConstant
+         
         
     def setweightmatrix3(self,numconnections):
         self.Weight = np.random.uniform(-15,15,size=(self.Size,self.Size))
@@ -67,8 +52,11 @@ class CTRNN():
             if self.Weight[i][j] != 0:
                 self.Weight[i][j] = 0
                 k = k+1
+<<<<<<< HEAD
        # NumConnections = np.count_nonzero(self.Weight)
         
+=======
+>>>>>>> 7c886510521e8649cab0c87948222c33601d4cce
             
 # =============================================================================
 #     def setParameters(self,genotype,WeightRange,BiasRange,TimeConstMin,TimeConstMax):
