@@ -24,6 +24,7 @@ class CTRNN():
         self.Output = np.zeros(size)            # neuron output vector
         self.Input = np.zeros(size)             # neuron output vector
         
+        
     def randomizeParameters(self):
         #self.Weight = np.random.uniform(-10,10,size=(self.Size,self.Size))
         self.Bias = np.random.uniform(-10,10,size=(self.Size))
@@ -66,8 +67,7 @@ class CTRNN():
             if self.Weight[i][j] != 0:
                 self.Weight[i][j] = 0
                 k = k+1
-      #  NumConnections = np.count_nonzero(self.Weight)
-      #  print(NumConnections)
+       # NumConnections = np.count_nonzero(self.Weight)
         
             
 # =============================================================================
