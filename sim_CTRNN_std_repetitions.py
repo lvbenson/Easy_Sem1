@@ -12,7 +12,6 @@ Created on Thu Nov 14 15:59:58 2019
 import CTRNN_Lauren
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 
 #Global parameters
 size = 3
@@ -25,7 +24,7 @@ NewRepOutputList = []
 StdOutputList = []
 ErrorsOutputList = []
 for c in possible_connections_ordered:
-    repetitions = np.arange(0,100,1)
+    repetitions = np.arange(0,10,1)
     TotalAvg = 0  
     EachRepOutputList = []
     Std_Each_Rep = []
@@ -67,27 +66,6 @@ for i in np.arange(1,(size**2)+1,1):
 plt.legend(loc='lower right')
 plt.show()
     
-# =============================================================================
-#     
-# for i in possible_connections_ordered:
-#     for l in NewRepOutputList:
-#         #plt.subplot(3, 3, i)
-#         plt.plot(repetitions,l)
-#         plt.show
-# 
-# 
-# =============================================================================
-    
-# =============================================================================
-#     
-#     
-#     
-#     fig, axes = plt.subplots(nrows=3, ncols=3, sharex=True, sharey=True)
-#     titles = ['1 Connection', '2 connections', '3 connections' '4 connections' '5 connections' '6 connections' '7 connections' '8 connections' '9 connections']
-# 
-# =============================================================================
-        
-
 
 
 
